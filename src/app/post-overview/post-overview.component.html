@@ -1,0 +1,46 @@
+<div *ngIf="is_loading; then content">{{ is_loading ? "" : "loading" }}</div>
+
+<ng-template #content>
+  <article class="post">
+    <content>
+      <h2>{{ post.title }}</h2>
+      <h4>{{ post.description }}</h4>
+      <h6>
+        {{ post.author }}
+      </h6>
+    </content>
+  </article>
+
+  <div>
+    <h4>{{ commentCount + " " }}Comments</h4>
+
+    <div class="comments_container">
+      <div *ngFor="let comment of comments" class="comment">
+        <div class="primary_comment">
+          <span
+            ><b>{{ comment.user }}</b></span
+          >
+          <p>{{ comment.content }}</p>
+          <p>{{ comment.date }}</p>
+        </div>
+        <div class="child_comments_container">
+          <div
+            *ngFor="let childComment of comment.children"
+            class="child_comment"
+          >
+            <span>
+              <b>{{ childComment.user }}</b>
+            </span>
+            <p>{{ childComment.content }}</p>
+            <p>{{ childComment.date }}</p>
+          </div>
+        </div>
+      </div>
+      <app-add-comment-form [id]="this.id"></app-add-comment-form>
+    </div>
+  </div>
+</ng-template>
+
+<h4>
+  <a routerLink="/" routerLinkActive="active">Back to Blog Feed</a>
+</h4>

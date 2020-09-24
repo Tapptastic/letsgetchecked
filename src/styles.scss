@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+/* Importing Bootstrap SCSS file. */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
+
+$primary_color: black;
+$box_shadow_color: #ddd;
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  margin: auto;
+  max-width: 900px;
+
+  @media (max-width: 450px) {
+    text-align: center;
+  }
+}

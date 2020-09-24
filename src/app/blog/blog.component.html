@@ -1,0 +1,11 @@
+<h1>Blog Feed</h1>
+
+<div *ngIf="is_loading; then content">{{ is_loading ? "" : "loading" }}</div>
+
+<ng-template #content>
+  <div class="post_container">
+      <div *ngFor="let post of feed">
+          <app-post [post]="post"></app-post>
+      </div>
+  </div>
+</ng-template>
